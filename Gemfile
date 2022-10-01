@@ -52,6 +52,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# デバッグツール
+gem 'pry-rails'
+
 # ログイン機能
 gem 'devise'
 
@@ -61,4 +64,8 @@ gem 'devise-i18n'
 
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'pry-rails'
+
+# テストコード
+gem 'rspec-rails', '~> 4.0.0'
+gem 'factory_bot_rails'
+gem 'faker'

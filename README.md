@@ -1,4 +1,4 @@
-# DB 設計
+## DB 設計
 
 ## users table
 
@@ -16,36 +16,31 @@
 ### Association
 
 * has_many :reservations
-* has_many :orders
+* has_many :comments
 
-
-## reservations table 
+## reservations table
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| name                                | string     | null: false                    |
-| price                               | integer    | null: false                    |
+| title                               | string     | null: false                    |
+| catch_copy                          | text       | null: false                    |
 | introduction                        | text       | null: false                    |
-| user                                | references | foreign_key: true              |
-| active_id                           | integer    | null: false                    |
-| equipment_id                        | integer    | null: false                    |
-| trading_area_id                     | integer    | null: false                    |
+| user                                | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_many :comments
 
+## comments table
 
-## order table
-
-| Column             | Type                | Options                        |
-|--------------------|---------------------|--------------------------------|
-| user               | references          | null: false, foreign_key: true |
-| item               | references          | null: false, foreign_key: true |
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| content     | text       | null: false                    |
+| reservation | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
+- belongs_to :reservation
 - belongs_to :user
-- belongs_to :item
-- has_one :address(未定)
