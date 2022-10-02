@@ -1,0 +1,10 @@
+<div class="card">
+  <%= link_to image_tag(reservation.image, class: :card__img ), reservation_path(reservation) %>
+  <div class="card__body">
+    <%= link_to reservation.title, reservation_path(reservation), class: :card__title%>
+    <p class="card__summary">
+      <%= reservation.place %>
+    </p>
+    <%= link_to "by #{reservation.user.nickname}", user_path(reservation.user), class: :card__user %>
+  </div>
+</div>

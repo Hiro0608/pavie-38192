@@ -1,0 +1,34 @@
+<main class="main">
+  <div class="inner">
+    <div class="reservation__wrapper">
+      <p class="reservation__hedding">
+        <%= @reservation.title %>
+      </p>
+      <%= link_to "by #{@reservation.user.nickname}", user_path(@reservation.user), class: :reservation__user %>
+      <% if current_user == @reservation.user%>
+        <div class="reservation__manage">
+          <%= link_to "編集する", edit_reservation_path(@reservation), class: :reservation__btn %>
+          <%= link_to "削除する", reservation_path(@reservation), method: :delete, class: :reservation__btn %>
+        </div>
+      <% end %>
+      <div class="reservation__image">
+        <%= image_tag @reservation.image %>
+      </div>
+      <div class="reservation__body">
+        <div class="reservation__detail">
+          <p class="detail__title">場所</p>
+          <p class="detail__message">
+            <%= @reservation.place %>
+          </p>
+        </div>
+        <div class="reservation__detail">
+          <p class="detail__title">introduction</p>
+          <p class="detail__message">
+            <%= @reservation.introduction %>
+          </p>
+          <p>コメント機能修正必要</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

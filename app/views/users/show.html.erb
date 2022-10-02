@@ -1,0 +1,23 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%# "#{@user.nickname}さんの情報（修正ポイント）"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">ニックネーム（修正中user/show）</th>
+            <%#td class="table__col2"><%= @user.nickname %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%# "#{@user.nickname}さんの旅行記録（修正ポイント）"%>
+      </h2>
+      <div class="user__card">
+        <%# render partial: 'reservations/reservation', collection: @user.reservations %>
+      </div>
+    </div>
+  </div>
+</div>
