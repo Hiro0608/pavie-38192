@@ -14,13 +14,14 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
 
   has_many :reservations
-  has_many :orders
+  #has_many :comments
+end
 
 #ゲストログイン機能
-  def self.guest
-    find_or_create_by(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
+  #def self.guest
+    #find_or_create_by(email: 'guest@example.com') do |user|
+      #user.password = SecureRandom.urlsafe_base64
       # user.confirmed_at = Time.now
-    end
-  end
-end
+    #end
+  #end
+#end
