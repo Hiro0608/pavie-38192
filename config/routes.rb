@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'reservations#index'
-  resources :reservations
+  resources :reservations, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :comments, only: :create 
+  end
+  resources :users, only: :show
+end
   #get 'reservations/index'
   #root 'reservations#index'
   #ゲストログイン機能
@@ -13,4 +17,3 @@ Rails.application.routes.draw do
     #post '/users/guest_sign_in', to: 'users/sessions#new_guest'
   #end
   #ゲストログイン機能
-end

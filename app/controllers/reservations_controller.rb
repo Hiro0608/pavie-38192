@@ -3,7 +3,8 @@ class ReservationsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.order("created_at DESC")
+
   end
 
   def new
