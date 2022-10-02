@@ -4,7 +4,6 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.includes(:user)
-
   end
 
   def new
@@ -21,13 +20,15 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    @reservation = Reservation.find(params[:id])
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
   end
 
   def update
-    reservation = Reservation.reservation(params[:id])
+    reservation = Reservation.find(params[:id])
     reservation.update(reservation_params)
   end
 
