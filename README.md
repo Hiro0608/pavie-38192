@@ -20,12 +20,12 @@
 
 ## reservations table
 
-| Column                              | Type       | Options                        |
-|-------------------------------------|------------|--------------------------------|
-| title                               | string     | null: false                    |
-| catch_copy                          | text       | null: false                    |
-| introduction                        | text       | null: false                    |
-| user                                | references | null: false, foreign_key: true |
+| Column             | Type                | Options                        |
+|--------------------|---------------------|--------------------------------|
+| title              | string              | null: false                    |
+| place              | string              | null: false                    |
+| introduction       | text                | null: false                    |
+| user               | references          | null: false, foreign_key: true |
 
 ### Association
 
