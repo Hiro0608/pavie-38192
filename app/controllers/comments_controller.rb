@@ -1,6 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(comment_params)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to reservation_path(@comment.reservation)
+    else
+      @reservation = @comment.reservation
+      @comments = @reservation.comments
+      render "reservations/show"
+    end
   end
 
   private
