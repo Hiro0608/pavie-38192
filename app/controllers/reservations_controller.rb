@@ -1,6 +1,8 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:edit, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, except: [:index, :show]
+  
 
   def index
     @reservations = Reservation.includes(:user)
@@ -29,8 +31,11 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    reservation = Reservation.find(params[:id])
-    reservation.update(reservation_params)
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path(@prototype)
+    else
+      render :edit
+    end
   end
 
   def destroy
