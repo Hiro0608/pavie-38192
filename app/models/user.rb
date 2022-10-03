@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
 
   has_many :reservations
-  #has_many :comments
+  has_many :comments
 end
 
 #ゲストログイン機能

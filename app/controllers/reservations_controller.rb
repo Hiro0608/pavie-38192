@@ -20,7 +20,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
+    @comment = Comment.new
+    @comments = @reservation.comments
   end
 
   def edit
