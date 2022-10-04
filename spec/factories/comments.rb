@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
     content             { Faker::Lorem.sentence }
-    association         :user
-    association         :reservation
+    user                { Faker::Lorem.sentence }
+    reservation         { Faker::Lorem.sentence }
   end
 end
