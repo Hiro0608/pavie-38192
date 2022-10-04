@@ -1,7 +1,8 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:edit, :show]
-  before_action :move_to_index, except: [:index, :show]
-
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  
   def index
     @reservations = Reservation.includes(:user)
   end
@@ -20,21 +21,27 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
+    @comment = Comment.new
+    @comments = @reservation.comments
   end
 
   def edit
-    @reservation = Reservation.find(params[:id])
   end
 
   def update
-    reservation = Reservation.find(params[:id])
-    reservation.update(reservation_params)
+    if @reservation.update(reservation_params)
+      redirect_to reservation_path(@reservation)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    reservation = Reservation.find(params[:id])
-    reservation.destroy
+    if @reservation.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -47,9 +54,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @reservation.user
   end
 end
