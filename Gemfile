@@ -62,9 +62,6 @@ gem 'devise'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 
-# Bootstrap
-gem 'devise-bootstrap-views', '~> 1.0'
-
 # テストコード
 gem 'rspec-rails', '~> 4.0.0'
 gem 'factory_bot_rails'
