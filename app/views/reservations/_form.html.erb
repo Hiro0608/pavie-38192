@@ -1,6 +1,6 @@
 <%# render "shared/header" %>
 <%#div class="container-login"><%#application.scssにて調整%>
-<%= form_with model: reservation, local: true do |f|%>
+<%= form_with model: reservation, id: 'new_post', local: true do |f|%>
 <%= render 'shared/error_messages', model: f.object %>
   <div class="field">
     <%= f.label :title, "タイトル" %><br />
@@ -17,7 +17,8 @@
     <%= f.text_area :introduction, class: :form__text %>
   </div>
 
-  <div class="field">
+  <div class="image-field">
+    <div id="previews"></div>
     <%= f.label :image, "プロトタイプの画像" %><br />
     <%= f.file_field :image %>
   </div>
