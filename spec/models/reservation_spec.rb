@@ -14,27 +14,27 @@ RSpec.describe Reservation, type: :model do
       it "写真が添付されていないと登録できない" do
         @reservation.image = nil
         @reservation.valid?
-        expect(@reservation.errors.full_messages).to include("Imageを入力してください")
+        expect(@reservation.errors.full_messages).to include("画像を入力してください")
       end
       it "タイトルが入力されていなければ登録できない" do
         @reservation.title = ''
         @reservation.valid?
-        expect(@reservation.errors.full_messages).to include("Titleを入力してください")
+        expect(@reservation.errors.full_messages).to include("タイトルを入力してください")
       end
       it "場所が入力されていなければ登録できない" do
         @reservation.place = ''
         @reservation.valid?
-        expect(@reservation.errors.full_messages).to include("Placeを入力してください")
+        expect(@reservation.errors.full_messages).to include("場所を入力してください")
       end
       it "投稿の説明が入力されていなければ登録できない" do
         @reservation.introduction = ''
         @reservation.valid?
-        expect(@reservation.errors.full_messages).to include("Introductionを入力してください")
+        expect(@reservation.errors.full_messages).to include("投稿内容を入力してください")
       end
-      it "ユーザーが紐付いていない場合は登録できない" do
+      it "userが紐付いていない場合は登録できない" do
         @reservation.user = nil
         @reservation.valid?
-        expect(@reservation.errors.full_messages).to include("Userを入力してください")
+        expect(@reservation.errors.full_messages).to include("ユーザーを入力してください")
       end
     end
   end

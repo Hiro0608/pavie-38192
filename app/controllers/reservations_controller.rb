@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to root_path
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -29,10 +29,11 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
       redirect_to reservation_path(@reservation)
     else
-      render :edit
+      render 'edit'
     end
   end
 

@@ -5,7 +5,7 @@ class Reservation < ApplicationRecord
 
   validates :title, presence: true
   validates :place, presence: true
-  validates :introduction, presence: true  
+  validates :introduction, presence: true 
   validates :image, presence: true
 end
 
