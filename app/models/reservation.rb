@@ -3,9 +3,9 @@ class Reservation < ApplicationRecord
   has_one_attached :image
   has_many :comments, dependent: :destroy
 
-  validates :title, :image, presence: true
-  validates :place, :image, presence: true
-  validates :introduction, :image, presence: true  
+  validates :title, presence: true
+  validates :place, presence: true
+  validates :introduction, presence: true 
   validates :image, presence: true
 end
 
